@@ -6,11 +6,11 @@
   "scripts": {
     "build": "tsc",
     "ts": "tsc -w",
+    "dev": "nodemon ./build/index.js",
     "clean": "rimraf ./build",
     "local": "node ./build/index.js",
     "ts:node": "ts-node ./src/index.ts",
-    "dev": "nodemon ./build/index.js",
-    "start": "npm run build && node ./build/index.js"
+    "start": "npm run build && npm run local"
   },
   "keywords": [],
   "author": "",

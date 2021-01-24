@@ -1,12 +1,6 @@
 = UPLOAD_IMAGE-RESTAPI-NODEJS
 
-
-== Documentacion
-
-link:documentation/Servicios.adoc[Servicios]
-
 == IDE
-
 
 === Visual Studio Code
 
@@ -21,17 +15,6 @@ ext install EditorConfig.EditorConfig
 ext install esbenp.prettier-vscode
 ext install mhutchie.git-graph
 ----
-
-[source,shell script]
-----
-$ aws configure
-
-AWS Access Key ID [****************GO47]:
-AWS Secret Access Key [****************KwK6]:
-Default region name [us-east-1]:
-Default output format [json]:
-----
-
 == GIT
 
 Si usas windows y se tiene problemas con el retorno de carro (LF/CRLF) configurar este comando:
@@ -40,96 +23,19 @@ Si usas windows y se tiene problemas con el retorno de carro (LF/CRLF) configura
 git config --global core.autocrlf input
 ----
 
-== Comandos para correr el pryecto
+== Comandos para correr el proyecto en dev
 
-=== Reformateo con prettier
+=== Usar Nodemon en Typescript
 
-Por un tema de estandares, se debe de usar el prettier para formatear su codigo, si es que la
-integracion de prettier con su IDE no funciona.
+De manera correcta NODEMON corre codigo Javascript, pero si estas utilizando Typescript, tendras problemas y
+usaras configuraciones tediosas. Una manera sencilla es usando 2 scripts en tu package.json:
 
-[source,shell script]
-----
-yarn lint:fixprettier
-----
+*"tsc -w"* --> Transpila codigo Typescript a Javascript de manera automatica, estando atento a cambios.
 
-=== Pruebas unitarias
+*"nodemon ./build/index.js"* --> Utilizas nodemon con el codigo JS generado.
 
 [source,shell script]
 ----
-yarn lint
-yarn test
+"ts": "tsc -w"
+"dev": "nodemon ./build/index.js"
 ----
-
-=== Ejecucion OffLine
-
-Ejecutar los lambdas en local
-
-[source, shell script]
-----
-yarn workspace patientportal-authentication-api serverless offline
-----
-
-== Documentacion para Swagger
-
-=== Typescript to Json Schema
-
-Ejemplo para generar json schema desde typescript:
-
-[source, shell script]
-----
-yarn workspace patientportal-appointments-api typescript-json-schema "./src/domain/Appointments.ts" * -o "./models/AppointmentsSchemav2.json"
-----
-
-=== Generar documentacion
-
-Ejemplo para generar documentacion en modo local/offline. Se genera unicamente para OpenApi 3.0:
-Usar -f json para obtener un archivo de salida: openapi.json
-
-[source, shell script]
-----
-yarn workspace patientportal-appointments-api serverless openapi generate
-----
-
-=== Descargar documentacion desde Aws
-
-Ejemplo para descargar la documentacion desde Aws. Se genera unicamente para Swagger (OpenApi 2.0).
-
-[source, shell script]
-----
-yarn workspace patientportal-appointments-api serverless downloadDocumentation --outputFileName=downloadedDocs.yml
-----
-
-== Parametros y Secrets
-
-Usar los metodos getParameter y getSecrets importandolos desde libs
-
-[source, shell script]
-----
-import { getParameter, getSecret } from '../../../../libs/utils';
-----
-=== Parameters en ssm
-Input (string): `/${this.stage}/appointment/urlx`
-
-Output (string): valor del parametro
-
-Crear Parametro: `aws ssm put-parameter --name urlrandom --value http://auna.com --type String`
-
-=== Secrets en Secret Manager
-Input (string): `/${this.stage}/appointment/urlx`
-
-Output (string): `[{
-    "Key": "string",
-    "Value": "string"
-  }]`
-
-Crear secret: `aws secretsmanager create-secret --name mysecret --description "Top Secret Data" --secret-string file://mycreds.json`
-
-Estructura del json
-`[
-  {
-    "Key": "string",
-    "Value": "string"
-  }
-  ...
-]`
-
