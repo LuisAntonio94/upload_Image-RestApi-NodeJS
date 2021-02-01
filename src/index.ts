@@ -4,6 +4,7 @@ import { startConnection } from "./database";
 
 /* Modo CallBack
 app.listen(app.get('port'), () => {
+    startConnection();
     console.log('server on port', app.get('port'));
 });
 */
@@ -12,6 +13,6 @@ app.listen(app.get('port'), () => {
 async function main() {
     startConnection();
     await app.listen(app.get('port'));
-    console.log('server on port', app.get('port'))
+    console.log('Servidor corriendo en el puerto: ', app.get('port'))
 }
 main();

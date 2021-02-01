@@ -5,14 +5,17 @@ import indexRouter from './routes/index';
 
 const app = express();
 
-// settings 
+// Settings 
 app.set('port', process.env.PORT || 3000);
 
 // Middlewares
 app.use(morgan('dev'));
 app.use(express.json())
+
+// Routes
 app.use('/api', indexRouter);
-//Carpeta por la cual puede ser accedida desde el navegador
+
+// Carpeta por la cual puede ser accedida desde el navegador
 app.use('/uploads', express.static(path.resolve('uploads')));
 
 
