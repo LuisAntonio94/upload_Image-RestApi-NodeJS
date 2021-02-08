@@ -6,6 +6,15 @@ package-lock.json
 dist/
 build/
 
+# Contenido uploads
+#!uploads/compressor/
+#!uploads/documents/
+#!uploads/images/
+
+/uploads/compressor/*
+/uploads/documents/*
+/uploads/images/*
+
 # Serverless directories
 .serverless/
 
