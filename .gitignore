@@ -7,13 +7,23 @@ dist/
 build/
 
 # Contenido uploads
-#!uploads/compressor/
-#!uploads/documents/
-#!uploads/images/
+/uploads/compressors/*.rar
+/uploads/compressors/*.zip
+/uploads/compressors/*.7z
 
-/uploads/compressor/*
-/uploads/documents/*
-/uploads/images/*
+/uploads/documents/*.csv
+/uploads/documents/*.doc
+/uploads/documents/*.docx
+/uploads/documents/*.pdf
+/uploads/documents/*.ppt
+/uploads/documents/*.pptx
+/uploads/documents/*.xls
+/uploads/documents/*.xlsx
+
+/uploads/images/*.jpeg
+/uploads/images/*.jpg
+/uploads/images/*.png
+/uploads/images/*.gif
 
 # Serverless directories
 .serverless/

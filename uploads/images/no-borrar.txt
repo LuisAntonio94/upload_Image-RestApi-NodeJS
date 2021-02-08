@@ -1,0 +1,2 @@
+No borrar el archivo, para que se pueda mantener la estructura de carpetas que necesitara Multer,
+sino crear la estructura correcta para no caer en el error de: 'Error: ENOENT: no such file or directory'
