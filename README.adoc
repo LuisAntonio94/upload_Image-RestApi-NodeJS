@@ -39,3 +39,21 @@ usaras configuraciones tediosas. Una manera sencilla es usando 2 scripts en tu p
 "ts": "tsc -w"
 "dev": "nodemon ./build/index.js"
 ----
+
+== ESLint y Prettier
+=== Pasos para su configuración
+----
+1) Instalar de manera local la dependencia(modulo) ESLint
+1.1) npm install eslint --save-dev || yarn add eslint --dev
+2) Instalar el plugin ESLint en VSCode para su deteccion automatica de errores sin usar el comando de ESLint
+3) Configurar ESLint con la ayuda del comando: 
+    "npx eslint --init || yarn run eslint --init"
+4) Escoger las opciones de acuerdo al proyecto que estes trabajando
+5) Instalar el plugin de Prettier
+6) Crear el archivo: prettierrc (en el cual colocar las opciones de formateo)
+7) Es conveniente colocar en el archivo settings.json las siguientes lineas:
+    // Prettier config
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "prettier.requireConfig": true
+----
