@@ -19,6 +19,10 @@
 		"no-tabs": "off",
 		"import/no-unresolved": "off",
 		"import/extensions": "off",
-		"import/prefer-default-export": "off"
+		"import/prefer-default-export": "off",
+		"max-len": "off",
+		"nonblock-statement-body-position": ["error", "below"],
+		"no-else-return": ["error", { "allowElseIf": true }],
+		"curly": ["error", "multi", "consistent"]
 	}
 }

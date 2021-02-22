@@ -2,7 +2,7 @@ import express from 'express';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import morgan from 'morgan';
 import path from 'path';
-import indexRouter from './routes/index';
+import indexRouter from './routes/Index';
 
 const app = express();
 

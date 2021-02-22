@@ -1,6 +1,6 @@
-import app from './app'; // ES6
+import app from './App'; // ES6
 // const app = require("./app"); // CommonJS
-import { startConnection } from './database';
+import { startConnection } from './Database';
 
 /* Modo CallBack
 app.listen(app.get('port'), () => {

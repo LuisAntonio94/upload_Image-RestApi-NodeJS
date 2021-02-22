@@ -1,10 +1,5 @@
 import { Request, Response } from 'express';
 
-export function helloworld(req: Request, res: Response): Response {
-	const { name } = req.params;
-	return res.status(200).send({ message: `Hello ${name}!!!` });
-}
-
 export function getPhotos(res: Response): Response {
 	return res.json({ message: 'Lista de Fotos!' });
 }

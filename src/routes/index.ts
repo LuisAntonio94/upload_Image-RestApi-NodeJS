@@ -1,15 +1,16 @@
 import { Router } from 'express';
-import { helloworld, getPhotos, savePhoto } from '../controllers/photoController';
-// const multer = require('../config/multer');
-import multer from '../config/multer';
+import photoRouter from './PhotoRouter';
 
 const router = Router();
 
 // Endpoints
-router.route('/helloworld/:name').get(helloworld); // Prueba
+router.use('/photo', photoRouter);
 
-router.route('/photo').get(getPhotos).post(multer.single('image'), savePhoto);
-
-router.route('/photo').get();
+// Prueba
+function helloworld(req, res) {
+	const { name } = req.params;
+	return res.status(200).send({ message: `Hello ${name}!!!` });
+}
+router.route('/helloworld/:name').get(helloworld);
 
 export default router;
